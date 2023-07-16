@@ -1,10 +1,32 @@
-<h1>Users#new</h1>
+<h1 class="text-xl text-center mt-2">Users#new</h1>
 
-<%= link_to "New user", new_user_path %>
-
-<table>
-  <thead>
-     <tr>
-     </tr>
-  </thead>
-</table>
+<%= form_with model: @user do |f| %>
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <% if @user.errors.any? %>
+      <div>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
+    <div>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
+    <p>
+      <button class="bg-blue-200 px-2 py-1 rounded-md mt-2">
+        <%= f.submit %>
+      </button>
+    </p>
+  </div>
+<% end %>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -12,5 +13,19 @@
 
   <body>
     <%= yield %>
+    
+    <% flash.each do |type, msg| %>
+      <div>
+        <% if type == 'notice' %>
+          <div class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1">
+            <%= msg %>
+          </div>
+        <% else %>
+          <div class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1">
+            <%= msg %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </body>
 </html>
