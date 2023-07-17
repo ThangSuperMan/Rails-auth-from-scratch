@@ -2,5 +2,10 @@
   <h1>Welcome, <%= current_user.name %></h1>
 <% else %>
   <h1>This is the index page</h1>
-  <%= link_to 'Login', new_user_session_path %>
+  <%= link_to 'Login', new_user_session_path, class: 'text-blue-600 underline underline-offset-2' %>
 <% end %>
+<%= link_to 'Secret page', '/pages/secret', class: 'text-blue-600 underline underline-offset-2' %>
+
+<div id="user-data" data-user-id="<%= session[:user_id] %>"></div>
+
+<%= javascript_include_tag('example.js') %>

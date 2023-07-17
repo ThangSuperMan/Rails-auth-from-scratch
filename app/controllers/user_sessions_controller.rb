@@ -13,7 +13,7 @@ class UserSessionsController < ApplicationController
     if @user && @user.authenticate(params[:user][:password])
       puts '---------------------> here <--------------------'
       puts "User if: #{@user.id}"
-      cookies[:user_id] = @user.id
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       flash[:alert] = 'Login failed'

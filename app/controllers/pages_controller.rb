@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
   def index
+    # Binding for debug your session
+    # It will stop your application Process
+    # After running the following command for get the current session
+    # session.to_hash
+    # binding.break
   end
 
   def secret
