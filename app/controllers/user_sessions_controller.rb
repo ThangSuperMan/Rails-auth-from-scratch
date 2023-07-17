@@ -1,11 +1,12 @@
+
 class UserSessionsController < ApplicationController
   def new
     @user = User.new
   end
 
   def create
-    puts 'create jusst executed'
     root_path = '/'
+    puts 'create jusst executed'
     @user = User.find_by(name: params[:user][:name])
     puts "user password from form's body #{params[:user][:password]}"
 
@@ -19,5 +20,11 @@ class UserSessionsController < ApplicationController
       flash[:alert] = 'Login failed'
       redirect_to new_user_session_path
     end
+  end
+
+  def destroy
+    root_path = '/'
+    session[:user_id] = nil
+    redirect_to root_path
   end
 end

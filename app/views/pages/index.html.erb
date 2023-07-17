@@ -1,5 +1,10 @@
 <% if current_user %>
   <h1>Welcome, <%= current_user.name %></h1>
+  <%= link_to 'Logout', user_session_path(current_user),
+    data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
+    } %>
 <% else %>
   <h1>This is the index page</h1>
   <%= link_to 'Login', new_user_session_path, class: 'text-blue-600 underline underline-offset-2' %>

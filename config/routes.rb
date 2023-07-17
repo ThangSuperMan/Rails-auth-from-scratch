@@ -2,5 +2,6 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/secret'
   resources :users, only: [:index, :new, :create]
-  resources :user_sessions, only: [:new, :create]
+  resources :user_sessions, only: [:new, :create, :destroy]
+  resources :hehe
 end
