@@ -8,6 +8,7 @@ gem 'coverband'
 gem "importmap-rails"
 gem "jbuilder"
 gem "puma", "~> 5.0"
+gem "rubocop"
 gem "rails", "~> 7.0.6"
 gem "redis", "~> 4.0"
 gem "sprockets-rails"
