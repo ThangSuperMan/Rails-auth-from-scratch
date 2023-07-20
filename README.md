@@ -13,6 +13,7 @@
 - **Bcrypt**: hash password
 - **Tailwindcss**: CSS library
 - **Coverband**: report Rails app (it will help us to find out dead code) [Coverband](https://github.com/danmayer/coverband)
+- **Rubocop**: Check code convention, syntax, rules, ...(just like prettier or eslint) [Rubocop](https://github.com/rubocop/rubocop)
 
 ## Commands
 
@@ -38,4 +39,10 @@ sqlite3 db/development.sqlite3
 
 ```bash
 bundle exec rails c
+```
+
+- Rubycop check with specific file or folder
+
+```bash
+rubocop app/controllers/tests_controller.rb
 ```
